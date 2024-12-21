@@ -168,3 +168,6 @@
 - Organize your visuals neatly for easy access.
 - Add a **Map chart** for geographical data like **Sales by Country**.
 
+![image](https://github.com/user-attachments/assets/6bfccef2-f96b-4792-bca4-053948abaec1)
+
+
