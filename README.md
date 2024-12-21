@@ -1,204 +1,162 @@
-# Dynamic_retail_Dashboard
-Dynamic Dashboard
-Apologies for the oversight! Here is the updated **README** file, including the missing sample tables for **Order**, **Return**, and **People**.
+# Steps to Solve Problem Statements
+
+## 1. **KPIs - Total Sales, Total Profit, Quantity, Number of Orders, Profit Margin**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table into Excel using **Power Query**.
+   - Ensure that fields like **Sales**, **Profit**, **Quantity**, and **Order ID** are available in your data model.
+  
+2. **Create PivotTables:**
+   - Insert a **PivotTable** to calculate the total values for **Sales**, **Profit**, and **Quantity**.
+   - For the **Number of Orders**, use the **Count of Order ID**.
+   - Create a calculated field in the PivotTable for **Profit Margin**:  
+     `Profit Margin = (Total Profit / Total Sales)`.
+
+3. **Design KPIs:**
+   - Set up a section where the **Total Sales**, **Total Profit**, **Quantity**, **Number of Orders**, and **Profit Margin** will be displayed as dynamic KPIs.
+   - Link the KPIs to the corresponding PivotTable values so they update automatically based on filtering.
+
+4. **Visualize:**
+   - Create **KPI cards** to display the calculated values prominently on the dashboard. For example, use text boxes and data labels to show total sales and profit.
+  
+---![image](https://github.com/user-attachments/assets/fb6a4b7e-7479-4353-90dc-a3c6a5c73ae8)
+
+
+## 2. **Sales and Profit Analysis**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table into Excel using **Power Query** and ensure it includes necessary fields such as **Sales** and **Profit**.
+
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Sales** and **Profit** as values.
+   - Add **Product Category** (or other dimensions like **Region**, **Segment**) to rows or columns to segment the data.
+
+3. **Create Visuals:**
+   - Insert a **bar chart** or **line chart** to display sales and profit trends over time or by category.
+   - Use a **stacked bar chart** to compare sales and profit by category side by side.
+
+4. **Analyze:**
+   - Use conditional formatting or a **scatter plot** to identify areas where the sales-to-profit ratio is low, indicating potential inefficiencies.
 
 ---
 
-# Dynamic Retail Dashboard
+## 3. **Category-wise Profit**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table, ensuring that fields like **Category**, **Sales**, and **Profit** are available.
 
-## Overview
-The **Dynamic Retail Dashboard** is a comprehensive Excel-based dashboard created to provide interactive and insightful visualizations of retail sales data. By integrating multiple data sources from GitHub, such as **Order**, **People**, and **Return** tables, this dashboard allows users to dynamically analyze and monitor key retail metrics, such as total sales, profit, quantity, order trends, and much more.
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Category** in the rows.
+   - Sum **Profit** for each category.
 
-Using advanced features of **Power Query Editor** and **dynamic charts**, this dashboard is designed to provide in-depth analyses for business decision-making.
+3. **Create a Visual:**
+   - Create a **bar chart** or **pie chart** to display **Profit** by **Category**.
+   - This chart will show which categories are the most profitable.
 
-## Features
-- **KPI Tracking**: Dynamic tracking of key performance indicators like **Total Sales**, **Profit**, **Quantity**, **Order Count**, and more.
-- **Sales & Profit Analysis**: Visual insights into sales trends and profitability across various dimensions.
-- **Category-wise Profit**: Breakdown of profits by product category for targeted analysis.
-- **Segment-wise Sales Share %**: Visualize how different segments contribute to total sales.
-- **Sales by Country**: Geographical distribution of sales across countries.
-- **Top 5 & Bottom 5 Subcategories**: Identifying the best and worst-performing subcategories.
-- **Yearly Sales Trends**: Visualization of sales over the years to track growth or decline.
-- **Dynamic Charts**: Automatically update charts as data is filtered based on the selection in the **KPI table**.
-
-## Data Sources
-The dashboard integrates three primary data tables:
-1. **Order**: Contains all order details, including sales figures, product information, and customer details.
-2. **People**: Information about sales representatives and the regions they operate in.
-3. **Return**: Data on the returned orders, including the order ID and market region.
-
-The data from these tables is automatically pulled from the GitHub repository and transformed using **Power Query Editor**.
+4. **Analyze:**
+   - Highlight top-performing categories and investigate the reasons behind their higher profitability.
 
 ---
 
-### Sample Data:
+## 4. **Segment-wise Sales Share %**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table to get fields like **Segment** and **Sales**.
 
-#### 1. **Order Table:**
-| Row ID | Order ID        | Returned | Order Date | Ship Date | Ship Mode    | Customer ID  | Customer Name   | Segment    | City           | State    | Country        | Postal Code | Market | Region  | Product ID        | Category  | Sub-Category  | Product Name                                   | Sales   | Quantity | Discount | Profit   | Shipping Cost | Order Priority |
-|--------|-----------------|----------|------------|-----------|--------------|--------------|-----------------|------------|----------------|----------|----------------|-------------|--------|---------|-------------------|-----------|---------------|------------------------------------------------|---------|----------|----------|----------|---------------|----------------|
-| 32298  | CA-2012-124891  | No       | 31-07-2020 | 31-07-2020| Same Day     | RH-19495     | Rick Hansen     | Consumer   | New York City  | New York | United States  | 10024       | US     | East    | TEC-AC-10003033   | Technology | Accessories   | Plantronics CS510 - Wireless Headset          | 2309.65 | 7        | 0        | 762.18   | 933.57        | Critical       |
-| 26341  | IN-2013-77878   | Yes      | 05-02-2021 | 07-02-2021| Second Class | JR-16210     | Justin Ritter   | Corporate  | Wollongong     | New South Wales | Australia | APAC | Oceania | FUR-CH-10003950   | Furniture | Chairs        | Novimex Executive Leather Armchair, Black     | 3709.40 | 9        | 0.1      | -288.77  | 923.63        | Critical       |
-| 25330  | IN-2013-71249   | No       | 17-10-2021 | 18-10-2021| First Class  | CR-12730     | Craig Reiter    | Consumer   | Brisbane       | Queensland | Australia      |             | APAC   | Oceania | TEC-PH-10004664   | Technology | Phones        | Nokia Smart Phone                              | 5175.17 | 9        | 0.1      | 919.97   | 915.49        | Medium         |
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Segment** as rows and sum of **Sales**.
+   - Create a calculated field to show the **Sales Share %** for each segment:
+     - Formula: `Sales Share % = (Sales for Segment / Total Sales) * 100`
 
-#### 2. **Return Table:**
-| Returned | Order ID        | Market  |
-|----------|-----------------|---------|
-| Yes      | MX-2013-168137  | LATAM   |
-| Yes      | US-2011-165316  | LATAM   |
-| Yes      | ES-2013-1525878 | EU      |
-| Yes      | CA-2013-118311  | United States |
-| Yes      | ES-2011-1276768 | EU      |
-
-#### 3. **People Table:**
-| Person           | Region  |
-|------------------|---------|
-| Anna Andreadi    | Central |
-| Chuck Magee      | South   |
-| Kelly Williams   | East    |
-| Matt Collister   | West    |
-| Deborah Brumfield| Africa |
-| Larry Hughes     | AMEA    |
-| Nicole Hansen    | Canada  |
+3. **Create a Visual:**
+   - Create a **pie chart** to display the sales share by **Segment**.
+   - This chart will show which segments contribute the most to overall sales.
 
 ---
 
-## Problem Statements Solved
-This dashboard solves the following business problems and provides meaningful insights into various aspects of retail performance:
+## 5. **Sales by Country**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table, ensuring that the **Country** and **Sales** fields are present.
 
-### 1. **KPIs - Total Sales, Total Profit, Quantity, Number of Orders, Profit Margin**
-**Description:**  
-The KPIs section provides key metrics that are essential for understanding the overall business performance. These include:
-- **Total Sales**: The sum of all sales across all orders.
-- **Total Profit**: The sum of profits across all orders.
-- **Quantity**: The total number of items sold.
-- **Number of Orders**: The total count of orders.
-- **Profit Margin**: Profit divided by sales, indicating how efficiently the company is turning sales into profits.
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Country** as rows and **Sales** as values.
 
-**Visuals:**  
-Insert a screenshot of the dynamic KPI section showing real-time updates of the total sales, profit, quantity, and other metrics as they change based on the data.
+3. **Create a Visual:**
+   - Use a **map chart** (available in Excel) to display **Sales by Country** on a geographical map.
+   - Alternatively, create a **bar chart** to show total sales by country in descending order.
 
----
-
-### 2. **Sales and Profit Analysis**
-**Description:**  
-This section provides a detailed analysis of sales and profits across different categories, regions, and time periods. It helps identify high-performing and underperforming areas.
-
-**Visuals:**  
-Include a bar or line chart visualizing sales vs. profits, potentially segmented by product category or region.
+4. **Analyze:**
+   - Focus on the countries with the highest and lowest sales and investigate underlying causes.
 
 ---
 
-### 3. **Category-wise Profit**
-**Description:**  
-This analysis breaks down the total profits by product categories to help businesses understand which categories are the most profitable.
+## 6. **Top 5 Subcategories**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table and ensure **Sub-Category** and **Sales** are available.
 
-**Visuals:**  
-Add a pie chart or bar chart showing profit distribution by category (e.g., Technology, Furniture, Office Supplies).
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Sub-Category** as rows and **Sales** as values.
+   - Sort the **Sales** column in descending order.
 
----
+3. **Create a Visual:**
+   - Use a **bar chart** or **column chart** to show the top 5 subcategories by sales.
+   - Ensure the chart updates dynamically if the data is filtered by other parameters (e.g., year or region).
 
-### 4. **Segment-wise Sales Share %**
-**Description:**  
-This visualizes the share of total sales attributed to each customer segment, such as **Consumer**, **Corporate**, or **Home Office**.
-
-**Visuals:**  
-Include a pie chart showing the percentage of sales contributed by each customer segment. You can also use a stacked bar chart for more detailed comparisons.
-
----
-
-### 5. **Sales by Country**
-**Description:**  
-This feature helps visualize the total sales by different countries, offering insights into geographical performance.
-
-**Visuals:**  
-Insert a **Map** visualization or a bar chart that displays sales per country. This could help businesses focus on expanding or improving sales in certain countries.
+4. **Analyze:**
+   - Identify which subcategories are performing the best and investigate factors driving their success.
 
 ---
 
-### 6. **Top 5 Subcategories**
-**Description:**  
-This analysis highlights the top 5 subcategories with the highest sales, providing insights into the most popular product types.
+## 7. **Bottom 5 Subcategories**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table, ensuring **Sub-Category** and **Sales** are included.
 
-**Visuals:**  
-Include a bar chart or a table listing the **Top 5 Subcategories** by sales, showing which products are performing best.
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Sub-Category** in rows and **Sales** in values.
+   - Sort the **Sales** column in ascending order.
 
----
+3. **Create a Visual:**
+   - Use a **bar chart** or **column chart** to display the bottom 5 subcategories by sales.
+   - Like the top 5 chart, this should update dynamically based on filtering.
 
-### 7. **Bottom 5 Subcategories**
-**Description:**  
-This analysis shows the lowest 5 subcategories based on sales, highlighting areas that need attention or improvement.
-
-**Visuals:**  
-Add a table or bar chart showcasing the **Bottom 5 Subcategories** by sales.
-
----
-
-### 8. **Yearly Sales Trend**
-**Description:**  
-Track the performance of sales over time by visualizing annual sales trends. This helps identify growth patterns and cyclical sales changes.
-
-**Visuals:**  
-Include a line chart or area chart showing the **Yearly Sales Trend** over multiple years, helping businesses forecast and plan for future periods.
+4. **Analyze:**
+   - Focus on the bottom-performing subcategories and evaluate potential causes for their low sales performance.
 
 ---
 
-## Dynamic Dashboard Components
+## 8. **Yearly Sales Trend**
+### Steps:
+1. **Load Data:**
+   - Import the **Order** table and ensure that **Sales** and **Order Date** are available.
 
-- **KPI Table**: All KPIs such as total sales, total profit, total quantity, and order count are tracked dynamically using linked formulas in the KPI table.
-- **Dynamic Charts**: Based on user selection in the KPI table, all charts and visuals will update automatically to reflect the data chosen, offering a real-time analysis experience.
+2. **Create PivotTables:**
+   - Insert a **PivotTable** with **Order Date** (grouped by year) in rows and **Sales** in values.
 
-**Visuals**:  
-- Insert visuals showing the dynamic nature of the charts (before and after filtering data).
+3. **Create a Visual:**
+   - Create a **line chart** or **area chart** to show the trend of sales over time.
+   - This chart will highlight fluctuations and trends in yearly sales.
 
----
-
-## Data Transformation Process (Power Query)
-To ensure the data is ready for analysis, **Power Query Editor** was used to:
-1. **Merge Data**: Combine the Order, People, and Return tables to create a unified data model.
-2. **Data Cleaning**: Filter out unnecessary columns and rows, handle missing data, and ensure all values are correctly formatted.
-3. **Calculated Columns**: Create new columns to calculate metrics such as profitability and profit margins.
-4. **Dynamic Data Loading**: Link the data from the GitHub repository, so that the Excel file will automatically pull in the latest data whenever updated.
+4. **Analyze:**
+   - Observe whether there are any noticeable trends (e.g., seasonal spikes or downturns in sales).
 
 ---
 
-## Next Steps / Future Enhancements
-In future updates, additional features can be incorporated to further enhance the dashboard’s capabilities:
-1. **Return Analysis**: Analyze the impact of returned items on sales and profitability.
-2. **Top Customer Analysis**: Identify and analyze top customers by total sales or frequency of orders.
-3. **Bottom Customer Analysis**: Find low-performing customers and analyze the reasons for low sales.
-4. **Segment Analysis**: Perform a detailed breakdown of sales and profitability by customer segments.
-5. **Market Analysis**: Analyze the performance of different markets and regions in more detail.
-6. **Product Analysis**: Investigate product performance, identifying top and bottom-selling products across different categories.
+## Additional Steps for Dynamic Dashboard:
 
----
+### Dynamic Charts & Interactivity:
+- Use **Excel slicers** and **timeline filters** to enable users to filter by **Region**, **Segment**, **Product Category**, etc. The charts and KPIs will automatically update based on the filters selected.
 
-## Data Dictionary (Optional)
+### Data Transformations:
+- Use **Power Query Editor** to clean and transform your data before loading it into Excel. This can include:
+  - **Merging tables**: Combine data from the **Order**, **Return**, and **People** tables.
+  - **Filtering data**: Remove any rows or columns not needed for the analysis.
+  - **Creating calculated columns**: For instance, calculating **Profit Margin**, **Sales Share %**, etc.
 
-### Order Table
-- **Order ID**: Unique identifier for each order.
-- **Sales**: Total sales revenue for the order.
-- **Profit**: Profit generated from the order.
-- **Product Name**: Name of the product sold.
-- **Quantity**: Number of units sold.
-- **Order Date**: Date when the order was placed.
+### Final Visualization:
+- Place your **charts**, **KPIs**, and **PivotTables** on a dashboard sheet.
+- Organize your visuals neatly for easy access.
+- Add a **Map chart** for geographical data like **Sales by Country**.
 
-### Return Table
-- **Order ID**: Unique identifier for returned orders.
-- **Market**: The geographical market in which the return occurred.
-- **Returned**: Indicator of whether the item was returned (Yes/No).
-
-### People Table
-- **Person**: Name of the sales representative.
-- **Region**: Region assigned to the representative.
-
----
-
-## How to Use the Dashboard
-1. **Download the Excel File**: Clone or download the repository containing the Excel file.
-2. **Data Setup**: Ensure that the data from the GitHub repository is correctly linked to the Excel file.
-3. **Interact with Filters**: Use the drop-down menus and slicers to filter the data dynamically. The charts will update automatically.
-4. **Visualize Results**: View the updated KPIs, charts, and tables for real-time insights into your retail performance.
-
----
-
-Feel free to add the appropriate visuals in each section, such as the graphs, charts, and map snapshots, to provide a clear and interactive experience for the user.
