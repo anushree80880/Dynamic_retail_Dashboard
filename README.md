@@ -38,7 +38,8 @@
 4. **Analyze:**
    - Use conditional formatting or a **scatter plot** to identify areas where the sales-to-profit ratio is low, indicating potential inefficiencies.
 
----
+![image](https://github.com/user-attachments/assets/8e235556-7b31-4e3d-a5cb-2e530089c5a5)
+
 
 ## 3. **Category-wise Profit**
 ### Steps:
@@ -56,7 +57,9 @@
 4. **Analyze:**
    - Highlight top-performing categories and investigate the reasons behind their higher profitability.
 
----
+![image](https://github.com/user-attachments/assets/0e77fe37-1ecd-46ea-be42-e33cc11ca67e)
+
+
 
 ## 4. **Segment-wise Sales Share %**
 ### Steps:
@@ -72,7 +75,8 @@
    - Create a **pie chart** to display the sales share by **Segment**.
    - This chart will show which segments contribute the most to overall sales.
 
----
+---![image](https://github.com/user-attachments/assets/5cbbc26e-3890-4d3c-bc53-8dfde602077a)
+
 
 ## 5. **Sales by Country**
 ### Steps:
@@ -89,7 +93,8 @@
 4. **Analyze:**
    - Focus on the countries with the highest and lowest sales and investigate underlying causes.
 
----
+---![image](https://github.com/user-attachments/assets/36f0eac0-df5b-4bd4-bf21-d45edbc79ff4)
+
 
 ## 6. **Top 5 Subcategories**
 ### Steps:
@@ -107,7 +112,8 @@
 4. **Analyze:**
    - Identify which subcategories are performing the best and investigate factors driving their success.
 
----
+---![image](https://github.com/user-attachments/assets/0a9f9572-6b06-4204-a64b-d8c1fc8660ea)
+
 
 ## 7. **Bottom 5 Subcategories**
 ### Steps:
@@ -125,7 +131,8 @@
 4. **Analyze:**
    - Focus on the bottom-performing subcategories and evaluate potential causes for their low sales performance.
 
----
+---![image](https://github.com/user-attachments/assets/0a28a069-b806-436a-b1b7-4e9d9e00ba11)
+
 
 ## 8. **Yearly Sales Trend**
 ### Steps:
@@ -142,7 +149,8 @@
 4. **Analyze:**
    - Observe whether there are any noticeable trends (e.g., seasonal spikes or downturns in sales).
 
----
+---![image](https://github.com/user-attachments/assets/3bf842b6-7b6c-469c-b741-d7ef4370f38b)
+
 
 ## Additional Steps for Dynamic Dashboard:
 
